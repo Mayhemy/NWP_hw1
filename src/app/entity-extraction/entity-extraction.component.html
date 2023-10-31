@@ -1,0 +1,28 @@
+<h1>Entity Extraction</h1>
+<form (submit)="extractEntities()"id="entity-extraction-form">
+  <label for="text">Enter text:</label>
+  <input type="text" class="form-control" id="text" name="text" placeholder="my_query" [(ngModel)]="text">
+
+  <label for="minConfidence">Minimum Confidence:</label>
+  <input type="range" id="minConfidence" name="minConfidence" min="0" max="1" step="0.1" [(ngModel)]="min_confidence">
+  <span> {{min_confidence}}</span>
+
+  <p>Include:</p>
+  <label for="includeImage">Image</label>
+  <input type="checkbox" id="includeImage" name="include" value="image" [(ngModel)]="image">
+
+  <label for="includeAbstract">Abstract</label>
+  <input type="checkbox" id="includeAbstract" name="include" value="abstract" [(ngModel)]="abstract">
+
+  <label for="includeCategories">Categories</label>
+  <input type="checkbox" id="includeCategories" name="include" value="categories" [(ngModel)]="categories">
+
+  <button type="submit">Submit</button>
+</form>
+
+<div *ngFor="let entry of result;" class="mb-2">
+    <p><b>Title: </b>{{ entry.title }}</p>
+    <p *ngIf="entry.abstract!=null"><b>Abstract: </b>{{ entry.abstract }}</p>
+    <p *ngIf="entry.categories!=null"><b>Categories: </b>{{ entry.categories }}</p>
+    <p *ngIf="entry.image!=null"><b>Image: </b><img src="{{ entry.image.thumbnail }}"></p>
+</div>

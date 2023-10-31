@@ -1,0 +1,18 @@
+<h1>Text Similarity</h1>
+<div class="form-group mb-2">
+  <input type="text" id="firstText" name="text" placeholder="first text" [(ngModel)]="text1">
+  <input type="button" class="btn btn-primary" value="Submit" (click)="findSimilarityLevel()">
+  <input type="text" id="secondText" name="text" placeholder="second text" [(ngModel)]="text2">
+</div>
+<div class="container mt-5">
+  <h3>Similarity</h3>
+  <div class="progress custom-progress">
+    <div class="progress-bar" role="progressbar" [style.width.%]="similarity"  aria-valuemin="0" aria-valuemax="1"></div>
+  </div>
+  <div class="text-center">{{similarity}}</div>
+  <h3>Accuracy of the language detection</h3>
+  <div class="progress custom-progress">
+    <div class="progress-bar" role="progressbar" [style.width.%]="langConfidence" [attr.aria-valuenow]="langConfidence" aria-valuemin="0.0" aria-valuemax="1"></div>
+  </div>
+  <div class="text-center">{{langConfidence}}</div>
+</div>

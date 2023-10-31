@@ -1,0 +1,16 @@
+<h1>Sentiment analysis</h1>
+<div>
+<input type="text" class="form-control" id="firstText" name="text" placeholder="text to analyze" [(ngModel)]="text">
+<label for="sentiment-analysis">Choose a language:</label>
+<select name="sentiment-analysis" id="sentiment-analysis" [(ngModel)]="lang">
+  <option value="en">English</option>
+  <option value="it">Italian</option>
+  <option value="auto">Auto</option>
+</select>
+<button (click)="calculateSentiment()">Submit</button>
+</div>
+<div>
+  <h5 class="mb-1" *ngIf="textSentiment.type != '' || textSentiment.score != 0">{{ textSentiment.score }}</h5>
+  <p [style]="{color: sentimentColor}">{{ textSentiment.type}}</p>
+</div>
+

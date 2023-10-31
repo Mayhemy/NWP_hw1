@@ -1,0 +1,9 @@
+<div>
+  <form (submit)="loadToken()" class="mb-5">
+    <div class="form-group mb-2">
+      <label for="token">Enter token:</label>
+      <input type="text" class="form-control" id="token" name="token" placeholder="my_token" [(ngModel)]="token">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

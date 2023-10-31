@@ -1,0 +1,14 @@
+<h1>Language Detection</h1>
+<div class="form-group mb-2">
+  <input type="text" class="form-control" id="firstText" name="text" placeholder="first text" [(ngModel)]="text">
+  <label>Clean</label>
+  <input type="checkbox" id="Clean" name="clean" value="clean" [(ngModel)]="clean">
+  <button (click)="detectLanguage()">Detect Language</button>
+  <div class="list-group">
+    <h3>Detected Languages</h3>
+    <div *ngFor="let language of detectedLanguages" class="list-group-item">
+      <p class="mb-0">I've detected {{ language.lang | uppercase}}</p>
+      <p class="mb-0">Confidence: {{ language.confidence }}</p>
+    </div>
+  </div>
+</div>
